@@ -104,7 +104,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-[calc(100vh-4rem)] flex items-start">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-start">
       <div className="absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="absolute -bottom-24 left-[-6rem] h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
 
@@ -145,7 +145,7 @@ export default function Hero() {
             </ul>
           </div>
 
-          <div id="enquire" className="card card-hover p-4 sm:p-6">
+          <div id="enquire" className="card card-hover p-4 sm:p-6 scroll-mt-20 sm:scroll-mt-24">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">Enquire now</h2>
@@ -230,7 +230,7 @@ export default function Hero() {
                   <option value="Manipal Online">Manipal Online</option>
                   <option value="DY Patil Vidyapeeth">DY Patil Vidyapeeth</option>
                   <option value="Amity University">Amity University</option>
-                  <option value="UMass">UMass</option>
+                  <option value="University of Massachusetts">University of Massachusetts</option>
                   <option value="VIT">VIT</option>
                 </select>
               </div>

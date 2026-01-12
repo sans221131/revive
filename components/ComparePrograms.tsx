@@ -12,7 +12,6 @@ const programs: Program[] = [
     name: "NMIMS CDOE",
     accreditation: "UGC, DEB, NAAC A++, 8 campuses in India",
     emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
     accent: "blue",
   },
   {
@@ -20,60 +19,42 @@ const programs: Program[] = [
     accreditation:
       "UGC, DEB, NAAC A++, NIRF Top 10, QS 5 Star, Shanghai ranking: Top 2 in India ",
     emi: "₹8-10k/Mo",
-    badge: "NIRF Top 10",
+   
     accent: "cyan",
   },
   {
     name: "Amity University",
     accreditation: "UGC, DEB, NAAC A, 11 campuses in India, 163 research partners",
     emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
     accent: "blue",
   },
   {
     name: "DY Patil Online",
     accreditation: "UGC, NAAC A++, AICTE",
     emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
     accent: "indigo",
   },
   {
     name: "Manipal Online",
     accreditation: "UGC, AICTE, WES, NAAC A+, ACU",
     emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
     accent: "cyan",
   },
   {
     name: "DY Patil Vidyapeeth",
     accreditation: "UGC, AIU, NAAC A++, WES",
     emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
     accent: "violet",
   },
   {
-    name: "UMass",
+    name: "University of Massachusetts",
     accreditation: "NECHE, AACSB, Carnegie R1 (Doctoral/Research Univ.), US News Top Public University",
     emi: "₹8-10k/Mo",
-    badge: "Global",
     accent: "indigo",
   },
 ];
 
-function getInitials(name: string) {
-  const parts = name
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((p) => p.replace(/[^A-Za-z]/g, ""))
-    .filter(Boolean);
 
-  const initials = parts
-    .slice(0, 3)
-    .map((p) => p[0]!.toUpperCase())
-    .join("");
-
-  return initials || name.slice(0, 2).toUpperCase();
-}
 
 function getAccentClasses(accent: Program["accent"]) {
   switch (accent) {
@@ -138,7 +119,6 @@ export default function ComparePrograms() {
 }
 
 function Card({ program }: { program: Program }) {
-  const initials = getInitials(program.name);
   const accent = getAccentClasses(program.accent);
   const tags = program.accreditation
     .split(",")
@@ -150,17 +130,14 @@ function Card({ program }: { program: Program }) {
       <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accent.bar}`} />
 
       <div className="flex items-start justify-between gap-4">
-        <div className="flex items-start gap-3">
-          <div className={`grid h-10 w-10 place-items-center rounded-xl text-sm font-bold ring-1 ${accent.icon}`} aria-hidden>
-            {initials}
-          </div>
+        <div className="flex items-start">
           <div>
-            <h3 className="text-base font-semibold tracking-tight text-slate-900">{program.name}</h3>
+            <h3 className="text-lg font-semibold tracking-tight text-slate-900">{program.name}</h3>
             <p className="mt-0.5 text-xs text-slate-500">Online MBA • Fast enquiry</p>
           </div>
         </div>
 
-        <span className="badge">{program.badge ?? "UGC-ready"}</span>
+        {program.badge ? <span className="badge">{program.badge}</span> : null}
       </div>
 
       <div className="mt-4">
