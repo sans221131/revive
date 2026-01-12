@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const links = [
-  { href: '#programs', label: 'Programs' },
+  { href: '#programs', label: 'University' },
   { href: '#courses', label: 'Courses' },
   { href: '#benefits', label: 'Benefits' },
 ];

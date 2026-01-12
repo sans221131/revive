@@ -109,7 +109,7 @@ export default function Hero() {
       <div className="absolute -bottom-24 left-[-6rem] h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
 
       <div className="container-app section">
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 min-h-[520px]">
           <div className="pt-2">
             <div className="badge">Compare MBA programs • Fast enquiry</div>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
@@ -229,6 +229,9 @@ export default function Hero() {
                   <option value="DY Patil Online">DY Patil Online</option>
                   <option value="Manipal Online">Manipal Online</option>
                   <option value="DY Patil Vidyapeeth">DY Patil Vidyapeeth</option>
+                  <option value="Amity University">Amity University</option>
+                  <option value="UMass">UMass</option>
+                  <option value="VIT">VIT</option>
                 </select>
               </div>
 
