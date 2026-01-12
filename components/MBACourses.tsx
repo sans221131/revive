@@ -33,28 +33,35 @@ const courses = [
 
 export default function MBACourses() {
   return (
-    <section id="courses" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-          Online MBA Courses
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="courses" className="section bg-slate-50">
+      <div className="container-app">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="section-title">Online MBA Courses</h2>
+          <p className="section-subtitle">Choose a specialization aligned with your goals.</p>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {courses.map((course, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow"
+              className="card card-hover p-6"
             >
-              <div className="text-5xl mb-4">{course.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-xl">
+                  {course.icon}
+                </div>
+                <h3 className="text-base font-semibold tracking-tight text-slate-900">
                 {course.title}
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+                </h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 {course.description}
               </p>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-                Enquire Now
-              </button>
+              <div className="mt-5">
+                <a href="#enquire" className="btn btn-outline w-full">
+                  Enquire
+                </a>
+              </div>
             </div>
           ))}
         </div>

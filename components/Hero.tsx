@@ -59,7 +59,7 @@ export default function Hero() {
           message: data.error || 'Failed to submit enquiry. Please try again.',
         });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: 'error',
         message: 'An error occurred. Please try again later.',
@@ -70,44 +70,72 @@ export default function Hero() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Compare Top Online MBA Programs
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <div className="absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="absolute -bottom-24 left-[-6rem] h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
+
+      <div className="container-app section">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="pt-2">
+            <div className="badge">Compare MBA programs • Fast enquiry</div>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              Compare top <span className="text-blue-700">Online MBA</span> programs
             </h1>
-            <p className="text-xl text-blue-600 font-semibold mb-6">
-              From Inclination to Acceleration
+            <p className="mt-3 text-base font-medium text-slate-700 sm:text-lg">
+              From inclination to acceleration.
             </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Why go through the hassle of commuting daily and attending classes when you can
-              pursue online MBA Programs from the comfort of your home?
+            <p className="section-subtitle max-w-prose">
+              Why commute daily when you can pursue an Online MBA from home? Enrol in top programs across
+              India and accelerate your career growth.
             </p>
-            <p className="text-gray-700 text-lg leading-relaxed mt-4">
-              Enrol in the best management Programs across India at the top B-schools and get
-              started with perpetual career growth.
-            </p>
+
+            <ul className="mt-6 grid gap-3 text-sm text-slate-700 sm:text-base">
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+                  ✓
+                </span>
+                <span>UGC/NAAC accredited options</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+                  ✓
+                </span>
+                <span>Compare fees, EMI & universities</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+                  ✓
+                </span>
+                <span>Get a call back in minutes</span>
+              </li>
+            </ul>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Enquire Now</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div id="enquire" className="card card-hover p-6 sm:p-8">
+            <div className="flex items-start justify-between gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">Enquire now</h2>
+                <p className="mt-1 text-sm text-slate-600">Fill the form and we’ll reach out shortly.</p>
+              </div>
+              <span className="badge">Free</span>
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <div>
+                <label className="label">
                   Name *
                 </label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="input"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="label">
                   Phone *
                 </label>
                 <div className="flex gap-2">
@@ -115,12 +143,12 @@ export default function Hero() {
                     type="text"
                     value="91"
                     disabled
-                    className="w-16 px-4 py-3 border border-gray-300 rounded-lg bg-gray-100"
+                    className="w-16 rounded-xl border border-slate-300 bg-slate-100 px-3 py-3 text-sm text-slate-700"
                   />
                   <input
                     type="tel"
                     required
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="input"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
@@ -128,38 +156,38 @@ export default function Hero() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="label">
                   Email
                 </label>
                 <input
                   type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="input"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="label">
                   City *
                 </label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="input"
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="label">
                   University *
                 </label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="input"
                   value={formData.university}
                   onChange={(e) => setFormData({ ...formData, university: e.target.value })}
                 />
@@ -181,12 +209,12 @@ export default function Hero() {
                 <input
                   type="checkbox"
                   required
-                  className="mt-1"
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600"
                   checked={formData.agree}
                   onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
                 />
-                <label className="text-sm text-gray-600">
-                  I Agree to Knowledge ACAD Privacy Policy and provide consent to be contacted 
+                <label className="text-xs leading-relaxed text-slate-600">
+                  I Agree to Coursewala Privacy Policy and provide consent to be contacted 
                   for promotion via WhatsApp, SMS, Mail etc.
                 </label>
               </div>
@@ -194,7 +222,7 @@ export default function Hero() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="btn btn-primary w-full py-3 text-base disabled:cursor-not-allowed disabled:bg-slate-400"
               >
                 {isSubmitting ? 'Submitting...' : 'Enquire Now'}
               </button>

@@ -27,39 +27,43 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section id="benefits" className="py-16 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Benefits of Online Courses
-        </h2>
-        <p className="text-center text-blue-100 mb-12 text-lg">
-          Here are the benefits of online courses:
-        </p>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <section id="benefits" className="section bg-slate-50">
+      <div className="container-app">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="section-title">Benefits of Online Courses</h2>
+          <p className="section-subtitle">Flexible learning with real career advantages.</p>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition"
+              className="card card-hover p-6"
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl font-bold text-blue-200">{index + 1}.</span>
+                <span className="grid h-8 w-8 place-items-center rounded-xl bg-blue-600 text-sm font-bold text-white">
+                  {index + 1}
+                </span>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                  <p className="text-blue-100 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-base font-semibold tracking-tight text-slate-900">{benefit.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{benefit.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-xl p-8 text-center max-w-3xl mx-auto">
-          <p className="text-gray-900 text-xl font-semibold mb-4">
+        <div className="card mt-10 overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-center text-white">
+            <p className="text-lg font-semibold">
             Make the Right Choice: Compare Colleges & Universities Side by Side!
-          </p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
-            Enquire Now
-          </button>
+            </p>
+            <div className="mt-4 flex justify-center">
+              <a href="#enquire" className="btn bg-white text-slate-900 hover:bg-slate-100">
+                Enquire Now
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

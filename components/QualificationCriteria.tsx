@@ -13,23 +13,26 @@ const criteria = [
 
 export default function QualificationCriteria() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-          Qualification Criteria
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <section className="section bg-white">
+      <div className="container-app">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="section-title">Qualification Criteria</h2>
+          <p className="section-subtitle">Quick eligibility summary for admissions.</p>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
           {criteria.map((item, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-100"
+              className="card card-hover p-6 sm:p-8"
             >
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {item.title}
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-xl">
+                  {item.icon}
+                </div>
+                <h3 className="text-base font-semibold tracking-tight text-slate-900">{item.title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 {item.description}
               </p>
             </div>
