@@ -19,6 +19,39 @@ export default function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setSubmitStatus({ type: 'error', message: 'Name is required.' });
+      return;
+    }
+
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid 10-digit phone number.' });
+      return;
+    }
+
+    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (!formData.city.trim()) {
+      setSubmitStatus({ type: 'error', message: 'City is required.' });
+      return;
+    }
+
+    if (!formData.university) {
+      setSubmitStatus({ type: 'error', message: 'Please select a university.' });
+      return;
+    }
+
+    if (!formData.agree) {
+      setSubmitStatus({ type: 'error', message: 'You must agree to the privacy policy.' });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
@@ -59,7 +92,8 @@ export default function Hero() {
           message: data.error || 'Failed to submit enquiry. Please try again.',
         });
       }
-    } catch {
+    } catch (err) {
+      console.error('Submit error:', err);
       setSubmitStatus({
         type: 'error',
         message: 'An error occurred. Please try again later.',
@@ -184,13 +218,18 @@ export default function Hero() {
                 <label className="label">
                   University *
                 </label>
-                <input
-                  type="text"
+                <select
                   required
                   className="input"
                   value={formData.university}
                   onChange={(e) => setFormData({ ...formData, university: e.target.value })}
-                />
+                >
+                  <option value="">Select university</option>
+                  <option value="NMIMS CDOE">NMIMS CDOE</option>
+                  <option value="DY Patil Online">DY Patil Online</option>
+                  <option value="Manipal Online">Manipal Online</option>
+                  <option value="DY Patil Vidyapeeth">DY Patil Vidyapeeth</option>
+                </select>
               </div>
 
               {submitStatus.type && (
