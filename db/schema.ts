@@ -13,5 +13,7 @@ export const contacts = pgTable("contacts", {
 
   university: varchar("university", { length: 150 }).notNull(),
 
+  status: varchar("status", { length: 20 }).default("new").notNull(),
+
   createdAt: timestamp("created_at").defaultNow(),
 });
