@@ -4,7 +4,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = (await request.json()) as {
+      name?: string;
+      phone?: string;
+      email?: string;
+      city?: string;
+      university?: string;
+    };
     const { name, phone, email, city, university } = body;
 
     // Validate required fields
