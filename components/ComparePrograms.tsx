@@ -9,7 +9,7 @@ type Program = {
 const programs: Program[] = [
   // Ordered as requested: NMIMS, VIT, AMITY, then others
   {
-    name: "NMIMS CDOE",
+    name: "NMIMS",
     accreditation: "UGC, DEB, NAAC A++, 8 campuses in India",
     emi: "₹8-10k/Mo",
     accent: "blue",
