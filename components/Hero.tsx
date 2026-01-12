@@ -104,13 +104,13 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-[calc(100vh-4rem)] flex items-start">
       <div className="absolute -top-24 right-[-6rem] h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="absolute -bottom-24 left-[-6rem] h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
 
-      <div className="container-app section">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 min-h-[520px]">
-          <div className="pt-2">
+      <div className="container-app section pt-8 sm:pt-10">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 min-h-full">
+          <div className="pt-2 self-center">
             <div className="badge">Compare MBA programs • Fast enquiry</div>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
               Compare top <span className="text-blue-700">Online MBA</span> programs
@@ -145,7 +145,7 @@ export default function Hero() {
             </ul>
           </div>
 
-          <div id="enquire" className="card card-hover p-6 sm:p-8">
+          <div id="enquire" className="card card-hover p-4 sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">Enquire now</h2>
@@ -154,7 +154,7 @@ export default function Hero() {
               <span className="badge">Free</span>
             </div>
 
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            <form onSubmit={handleSubmit} className="mt-4 space-y-3">
               <div>
                 <label className="label">
                   Name *
@@ -162,7 +162,7 @@ export default function Hero() {
                 <input
                   type="text"
                   required
-                  className="input"
+                  className="input px-3 py-2"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -177,12 +177,12 @@ export default function Hero() {
                     type="text"
                     value="91"
                     disabled
-                    className="w-16 rounded-xl border border-slate-300 bg-slate-100 px-3 py-3 text-sm text-slate-700"
+                    className="w-14 rounded-lg border border-slate-300 bg-slate-100 px-2 py-2 text-sm text-slate-700"
                   />
                   <input
                     type="tel"
                     required
-                    className="input"
+                    className="input px-3 py-2"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
@@ -195,7 +195,7 @@ export default function Hero() {
                 </label>
                 <input
                   type="email"
-                  className="input"
+                  className="input px-3 py-2"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -208,7 +208,7 @@ export default function Hero() {
                 <input
                   type="text"
                   required
-                  className="input"
+                  className="input px-3 py-2"
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 />
@@ -220,7 +220,7 @@ export default function Hero() {
                 </label>
                 <select
                   required
-                  className="input"
+                  className="input px-3 py-2"
                   value={formData.university}
                   onChange={(e) => setFormData({ ...formData, university: e.target.value })}
                 >
@@ -237,7 +237,7 @@ export default function Hero() {
 
               {submitStatus.type && (
                 <div
-                  className={`p-4 rounded-lg ${
+                  className={`p-3 rounded-lg ${
                     submitStatus.type === 'success'
                       ? 'bg-green-50 text-green-800 border border-green-200'
                       : 'bg-red-50 text-red-800 border border-red-200'
@@ -255,7 +255,7 @@ export default function Hero() {
                   checked={formData.agree}
                   onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
                 />
-                <label className="text-xs leading-relaxed text-slate-600">
+                <label className="text-xs leading-tight text-slate-600">
                   I Agree to Coursewala Privacy Policy and provide consent to be contacted 
                   for promotion via WhatsApp, SMS, Mail etc.
                 </label>
@@ -264,7 +264,7 @@ export default function Hero() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary w-full py-3 text-base disabled:cursor-not-allowed disabled:bg-slate-400"
+                className="btn btn-primary w-full py-2 text-sm disabled:cursor-not-allowed disabled:bg-slate-400"
               >
                 {isSubmitting ? 'Submitting...' : 'Enquire Now'}
               </button>

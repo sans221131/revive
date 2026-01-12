@@ -7,9 +7,25 @@ type Program = {
 };
 
 const programs: Program[] = [
+  // Ordered as requested: NMIMS, VIT, AMITY, then others
   {
     name: "NMIMS CDOE",
-    accreditation: "UGC",
+    accreditation: "UGC, DEB, NAAC A++, 8 campuses in India",
+    emi: "₹8-10k/Mo",
+    badge: "UGC-ready",
+    accent: "blue",
+  },
+  {
+    name: "VIT",
+    accreditation:
+      "UGC, DEB, NAAC A++, NIRF Top 10, QS 5 Star, Shanghai ranking: Top 2 in India ",
+    emi: "₹8-10k/Mo",
+    badge: "NIRF Top 10",
+    accent: "cyan",
+  },
+  {
+    name: "Amity University",
+    accreditation: "UGC, DEB, NAAC A, 11 campuses in India, 163 research partners",
     emi: "₹8-10k/Mo",
     badge: "UGC-ready",
     accent: "blue",
@@ -36,25 +52,11 @@ const programs: Program[] = [
     accent: "violet",
   },
   {
-    name: "Amity University",
-    accreditation: "UGC, NAAC A",
-    emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
-    accent: "blue",
-  },
-  {
     name: "UMass",
-    accreditation: "AACSB",
+    accreditation: "NECHE, AACSB, Carnegie R1 (Doctoral/Research Univ.), US News Top Public University",
     emi: "₹8-10k/Mo",
     badge: "Global",
     accent: "indigo",
-  },
-  {
-    name: "VIT",
-    accreditation: "UGC, NAAC A+",
-    emi: "₹8-10k/Mo",
-    badge: "UGC-ready",
-    accent: "cyan",
   },
 ];
 
