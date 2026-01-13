@@ -133,7 +133,7 @@ function Card({ program }: { program: Program }) {
         <div className="flex items-start">
           <div>
             <h3 className="text-lg font-semibold tracking-tight text-slate-900">{program.name}</h3>
-            <p className="mt-0.5 text-xs text-slate-500">Online MBA • Fast enquiry</p>
+            <p className="mt-0.5 text-xs text-slate-500">Online MBA</p>
           </div>
         </div>
 

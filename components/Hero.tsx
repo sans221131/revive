@@ -111,7 +111,7 @@ export default function Hero() {
       <div className="container-app section pt-8 sm:pt-10">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 min-h-full">
           <div className="pt-2 self-center">
-            <div className="badge">Compare MBA programs • Fast enquiry</div>
+            <div className="badge">Compare MBA programs</div>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
               Compare top <span className="text-blue-700">Online MBA</span> programs
             </h1>
