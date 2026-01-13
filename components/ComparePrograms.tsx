@@ -7,7 +7,7 @@ type Program = {
 };
 
 const programs: Program[] = [
-  // Ordered as requested: NMIMS, VIT, AMITY, then others
+  // Ordered as requested: NMIMS, VIT, AMITY, DY PATIL, MANIPAL, and so on
   {
     name: "NMIMS",
     accreditation: "UGC, DEB, NAAC A++, 8 campuses in India",
@@ -35,16 +35,16 @@ const programs: Program[] = [
     accent: "indigo",
   },
   {
-    name: "Manipal Online",
-    accreditation: "UGC, AICTE, WES, NAAC A+, ACU",
-    emi: "₹8-10k/Mo",
-    accent: "cyan",
-  },
-  {
     name: "DY Patil Vidyapeeth",
     accreditation: "UGC, AIU, NAAC A++, WES",
     emi: "₹8-10k/Mo",
     accent: "violet",
+  },
+  {
+    name: "Manipal Online",
+    accreditation: "UGC, AICTE, WES, NAAC A+, ACU",
+    emi: "₹8-10k/Mo",
+    accent: "cyan",
   },
   {
     name: "University of Massachusetts",
