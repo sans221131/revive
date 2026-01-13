@@ -43,7 +43,7 @@ export async function PATCH(request: Request) {
       "not_interested",
       "ringing",
       "interested",
-      "admission_wrong",
+      "admission_done",
       "wrong_number",
     ];
     if (!validStatuses.includes(status)) {

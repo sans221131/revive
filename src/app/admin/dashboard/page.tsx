@@ -91,7 +91,7 @@ export default function AdminDashboard() {
         return "bg-yellow-100 text-yellow-800";
       case "interested":
         return "bg-blue-100 text-blue-800";
-      case "admission_wrong":
+      case "admission_done":
         return "bg-orange-100 text-orange-800";
       case "wrong_number":
         return "bg-pink-100 text-pink-800";
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
     not_interested: contacts.filter((c) => c.status === "not_interested").length,
     ringing: contacts.filter((c) => c.status === "ringing").length,
     interested: contacts.filter((c) => c.status === "interested").length,
-    admission_wrong: contacts.filter((c) => c.status === "admission_wrong").length,
+    admission_done: contacts.filter((c) => c.status === "admission_done").length,
     wrong_number: contacts.filter((c) => c.status === "wrong_number").length,
   };
 
@@ -216,14 +216,14 @@ export default function AdminDashboard() {
               Interested ({stats.interested})
             </button>
             <button
-              onClick={() => setFilter("admission_wrong")}
+              onClick={() => setFilter("admission_done")}
               className={`px-4 py-2 rounded-lg transition-colors ${
-                filter === "admission_wrong"
+                filter === "admission_done"
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
-              Admission Wrong ({stats.admission_wrong})
+              Admission Done ({stats.admission_done})
             </button>
             <button
               onClick={() => setFilter("wrong_number")}
@@ -318,7 +318,7 @@ export default function AdminDashboard() {
                           <option value="not_interested">Not Interested</option>
                           <option value="ringing">Ringing</option>
                           <option value="interested">Interested</option>
-                          <option value="admission_wrong">Admission Wrong</option>
+                          <option value="admission_done">Admission Done</option>
                           <option value="wrong_number">Wrong Number</option>
                         </select>
                       </td>
