@@ -85,12 +85,16 @@ export default function AdminDashboard() {
     switch (status) {
       case "new":
         return "bg-gray-100 text-gray-800";
-      case "contacted":
-        return "bg-blue-100 text-blue-800";
-      case "ongoing":
+      case "not_interested":
+        return "bg-red-100 text-red-800";
+      case "ringing":
         return "bg-yellow-100 text-yellow-800";
-      case "closed":
-        return "bg-green-100 text-green-800";
+      case "interested":
+        return "bg-blue-100 text-blue-800";
+      case "admission_wrong":
+        return "bg-orange-100 text-orange-800";
+      case "wrong_number":
+        return "bg-pink-100 text-pink-800";
       default:
         return "bg-gray-100 text-gray-800";
     }
@@ -99,9 +103,11 @@ export default function AdminDashboard() {
   const stats = {
     total: contacts.length,
     new: contacts.filter((c) => c.status === "new").length,
-    contacted: contacts.filter((c) => c.status === "contacted").length,
-    ongoing: contacts.filter((c) => c.status === "ongoing").length,
-    closed: contacts.filter((c) => c.status === "closed").length,
+    not_interested: contacts.filter((c) => c.status === "not_interested").length,
+    ringing: contacts.filter((c) => c.status === "ringing").length,
+    interested: contacts.filter((c) => c.status === "interested").length,
+    admission_wrong: contacts.filter((c) => c.status === "admission_wrong").length,
+    wrong_number: contacts.filter((c) => c.status === "wrong_number").length,
   };
 
   if (loading) {
@@ -139,16 +145,20 @@ export default function AdminDashboard() {
             <div className="text-3xl font-bold text-gray-900">{stats.new}</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-sm font-medium text-blue-600">Contacted</div>
-            <div className="text-3xl font-bold text-blue-900">{stats.contacted}</div>
+            <div className="text-sm font-medium text-red-600">Not Interested</div>
+            <div className="text-3xl font-bold text-red-900">
+              {stats.not_interested}
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-sm font-medium text-yellow-600">Ongoing</div>
-            <div className="text-3xl font-bold text-yellow-900">{stats.ongoing}</div>
+            <div className="text-sm font-medium text-yellow-600">Ringing</div>
+            <div className="text-3xl font-bold text-yellow-900">{stats.ringing}</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-sm font-medium text-green-600">Closed</div>
-            <div className="text-3xl font-bold text-green-900">{stats.closed}</div>
+            <div className="text-sm font-medium text-blue-600">Interested</div>
+            <div className="text-3xl font-bold text-blue-900">
+              {stats.interested}
+            </div>
           </div>
         </div>
 
@@ -176,34 +186,54 @@ export default function AdminDashboard() {
               New ({stats.new})
             </button>
             <button
-              onClick={() => setFilter("contacted")}
+              onClick={() => setFilter("not_interested")}
               className={`px-4 py-2 rounded-lg transition-colors ${
-                filter === "contacted"
+                filter === "not_interested"
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
-              Contacted ({stats.contacted})
+              Not Interested ({stats.not_interested})
             </button>
             <button
-              onClick={() => setFilter("ongoing")}
+              onClick={() => setFilter("ringing")}
               className={`px-4 py-2 rounded-lg transition-colors ${
-                filter === "ongoing"
+                filter === "ringing"
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
-              Ongoing ({stats.ongoing})
+              Ringing ({stats.ringing})
             </button>
             <button
-              onClick={() => setFilter("closed")}
+              onClick={() => setFilter("interested")}
               className={`px-4 py-2 rounded-lg transition-colors ${
-                filter === "closed"
+                filter === "interested"
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
-              Closed ({stats.closed})
+              Interested ({stats.interested})
+            </button>
+            <button
+              onClick={() => setFilter("admission_wrong")}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                filter === "admission_wrong"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
+              Admission Wrong ({stats.admission_wrong})
+            </button>
+            <button
+              onClick={() => setFilter("wrong_number")}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                filter === "wrong_number"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+            >
+              Wrong Number ({stats.wrong_number})
             </button>
           </div>
         </div>
@@ -285,9 +315,11 @@ export default function AdminDashboard() {
                           )}`}
                         >
                           <option value="new">New</option>
-                          <option value="contacted">Contacted</option>
-                          <option value="ongoing">Ongoing</option>
-                          <option value="closed">Closed</option>
+                          <option value="not_interested">Not Interested</option>
+                          <option value="ringing">Ringing</option>
+                          <option value="interested">Interested</option>
+                          <option value="admission_wrong">Admission Wrong</option>
+                          <option value="wrong_number">Wrong Number</option>
                         </select>
                       </td>
                     </tr>

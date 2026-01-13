@@ -38,7 +38,14 @@ export async function PATCH(request: Request) {
     }
 
     // Validate status
-    const validStatuses = ["new", "contacted", "ongoing", "closed"];
+    const validStatuses = [
+      "new",
+      "not_interested",
+      "ringing",
+      "interested",
+      "admission_wrong",
+      "wrong_number",
+    ];
     if (!validStatuses.includes(status)) {
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }

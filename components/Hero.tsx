@@ -226,12 +226,12 @@ export default function Hero() {
                 >
                   <option value="">Select university</option>
                   <option value="NMIMS CDOE">NMIMS CDOE</option>
-                  <option value="DY Patil Online">DY Patil Online</option>
-                  <option value="Manipal Online">Manipal Online</option>
-                  <option value="DY Patil Vidyapeeth">DY Patil Vidyapeeth</option>
-                  <option value="Amity University">Amity University</option>
-                  <option value="University of Massachusetts">University of Massachusetts</option>
                   <option value="VIT">VIT</option>
+                  <option value="Amity University">Amity University</option>
+                  <option value="DY Patil Online">DY Patil Online</option>
+                  <option value="DY Patil Vidyapeeth">DY Patil Vidyapeeth</option>
+                  <option value="Manipal Online">Manipal Online</option>
+                  <option value="University of Massachusetts">University of Massachusetts</option>
                 </select>
               </div>
 
