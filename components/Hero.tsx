@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Hero() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -13,7 +15,7 @@ export default function Hero() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: 'error' | null;
     message: string;
   }>({ type: null, message: '' });
 
@@ -73,19 +75,7 @@ export default function Hero() {
       const data = await response.json() as { error?: string };
 
       if (response.ok) {
-        setSubmitStatus({
-          type: 'success',
-          message: 'Thank you! Your enquiry has been submitted successfully.',
-        });
-        // Reset form
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          city: '',
-          university: '',
-          agree: false,
-        });
+        router.push('/thank-you');
       } else {
         setSubmitStatus({
           type: 'error',
@@ -235,14 +225,8 @@ export default function Hero() {
                 </select>
               </div>
 
-              {submitStatus.type && (
-                <div
-                  className={`p-3 rounded-lg ${
-                    submitStatus.type === 'success'
-                      ? 'bg-green-50 text-green-800 border border-green-200'
-                      : 'bg-red-50 text-red-800 border border-red-200'
-                  }`}
-                >
+              {submitStatus.type === 'error' && (
+                <div className="p-3 rounded-lg bg-red-50 text-red-800 border border-red-200">
                   {submitStatus.message}
                 </div>
               )}
